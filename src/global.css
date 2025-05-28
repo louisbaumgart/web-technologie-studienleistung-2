@@ -1,0 +1,68 @@
+/*
+  global.css – Hilfsklassen für Farben, Textauszeichnung und Flexbox-Layout
+  Diese Datei ergänzt das Hauptlayout und sorgt für wiederverwendbare Utility-Klassen
+*/
+
+/* Farbklassen für Text */
+.text-gray {
+  color: rgb(31 41 55 / 1);
+}
+.text-gray-600 {
+  color: rgb(75 85 99 / 1);
+}
+.text-gray-900 {
+  color: rgb(156 163 175 / 1);
+}
+.text-white {
+  color: white;
+}
+.text-white-600 {
+  color: rgb(249 250 251 / 1); /* sehr helles Weiß für spezielle Bereiche */
+}
+.text-yellow {
+  color: rgb(250 204 21 / 1);
+}
+
+/* Textausrichtung */
+.text-center {
+  text-align: center;
+}
+
+/* Schriftgrößen und Zeilenhöhen */
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-md {
+  font-size: 1rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+/* Flexbox Utility-Klassen für Layout */
+.flex {
+  display: flex;
+}
+.justify-center {
+  justify-content: center;
+}
+.items-center {
+  align-items: center;
+}
+.flex-col {
+  flex-direction: column;
+}
+
+/* Schatten für Karten und Boxen */
+.shadow {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05), 0 1px 3px 0 rgb(0 0 0 / 0.1);
+}

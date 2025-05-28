@@ -1,0 +1,563 @@
+/*
+  style.css – Hauptstylesheet für das Rock am See Festival 2025
+  Enthält Layout, Farben, Responsive Design und Komponenten-Styles
+*/
+
+/* GENERAL – Grundlegende Stile für Schrift, Hintergrund und Layout */
+body {
+  font-family: "Montserrat", sans-serif;
+  /* Hintergrundbild für alle Seiten, wird per ::before mit Blur angezeigt */
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Unscharfer Hintergrund für bessere Lesbarkeit */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url("./background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  filter: blur(8px) brightness(0.8);
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  border: inherit;
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-size: 100%;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  padding-block: unset;
+  padding-inline: unset;
+}
+
+button:hover {
+  background-color: #1f2937;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+p {
+  line-height: 24px;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
+}
+
+.action-btn {
+  color: white;
+  padding: 0.75rem 1.5rem;
+  background-color: #111827;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.hero-background {
+  /* Remove background-image from here so it doesn't override body */
+  background: none !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  min-height: 120vh;
+}
+
+/* NAVBAR – Navigation und responsives Menü */
+.nav {
+  position: sticky;
+  top: 0px;
+  padding: 1rem 0;
+  z-index: 50;
+  border-bottom: 1px solid lightgray;
+  background-color: rgb(241 231 193 / 98%);
+  backdrop-filter: blur(4px);
+}
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.nav-container ul {
+  user-select: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-link.active {
+  font-weight: 900;
+  color: rgb(0, 0, 0);
+}
+.nav-link {
+  font-size: 1.1rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  color: rgb(31 41 55 / 1);
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+  border-radius: calc(0.5rem - 2px);
+  padding: 0.5rem 0.75rem;
+}
+.nav-link:hover {
+  color: #4b5563;
+}
+
+/* --- Mobile Menu (Checkbox Hack) --- */
+/* Für kleine Bildschirme: Hamburger-Menü mit Checkbox-Hack */
+.nav-toggle {
+  display: none;
+}
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 60;
+}
+.hamburger-bar {
+  width: 2rem;
+  height: 0.25rem;
+  background: #111827;
+  margin: 0.2rem 0;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+@media (max-width: 599px) {
+  /* Mobile Menü sichtbar, wenn Checkbox aktiv */
+  .nav-hamburger {
+    display: flex;
+  }
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgb(241 231 193 / 98%);
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    padding: 1rem 0;
+    z-index: 55;
+  }
+  .nav-toggle:checked + .nav-hamburger + .nav-menu {
+    display: flex;
+  }
+  .nav-toggle:checked + .nav-hamburger .hamburger-bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+  .nav-toggle:checked + .nav-hamburger .hamburger-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle:checked + .nav-hamburger .hamburger-bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+  }
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+  }
+}
+
+/* Desktop: show menu, hide hamburger */
+@media (min-width: 600px) {
+  .nav-hamburger {
+    display: none;
+  }
+  .nav-menu {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+}
+
+/* HEADER */
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 2rem;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* MAIN CONTENT */
+main {
+  flex-grow: 1;
+}
+
+.container {
+  padding: 3rem 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content-box {
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,
+    0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  backdrop-filter: blur(4px);
+}
+
+.headliner {
+  padding: 1.5rem;
+  background-image: linear-gradient(
+    to right,
+    rgba(131, 148, 37, 0.8),
+    rgb(30 58 138 / 0.8)
+  );
+  border-radius: 0.5rem;
+}
+.headliner-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.headliner-image {
+  width: 100%;
+  height: 18rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+.headliner-image img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.headliner-image img:hover {
+  transform: scale(1.05);
+}
+.headliner-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.card {
+  background-color: #fffc;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.card-image {
+  overflow: hidden;
+  height: 12rem;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.card-image img:hover {
+  transform: scale(1.05);
+}
+.card-content {
+  padding: 0 1rem;
+}
+.card-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.5rem;
+}
+
+.bewerbung {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+.bewerbung .benefit {
+  margin-bottom: 1.5rem;
+}
+.bewerbung .content {
+  margin-left: 1.5rem;
+}
+.bewerbung .content h3,
+.bewerbung .content p {
+  margin: 0;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.form input {
+  border: 1px solid rgb(209 213 219 / 1);
+  border-radius: 0.5rem;
+  padding: 0.625rem;
+}
+.form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+#countdown {
+  padding: 0 3rem;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #4b5563;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.helper-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.helper-card {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border-left: 4px solid #4b5563;
+}
+
+.helper-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Responsive Breakpoints */
+/* Keins: x < 360px */
+/* Mobil: 360px ≤ x < 600px */
+@media (min-width: 360px) and (max-width: 599px) {
+  /* Überschriften und Abstände für kleine Bildschirme anpassen */
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.25rem;
+  }
+  h5 {
+    font-size: 1rem;
+  }
+  .container {
+    padding: 1rem 2rem;
+  }
+  .content-box {
+    padding: 1rem;
+    margin-top: 0.5rem;
+  }
+  .headliner-content {
+    gap: unset;
+  }
+
+  .event-table,
+  .event-table thead,
+  .event-table tbody,
+  .event-table th,
+  .event-table td,
+  .event-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .event-table thead {
+    display: none;
+  }
+
+  .event-table tr {
+    box-sizing: border-box;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.05); /* weicher Kontrast */
+    border-left: 4px solid #4b5563; /* optionaler Farbakzent */
+    border-radius: 0.5rem;
+  }
+
+  .event-table td {
+    border: none;
+    padding: 0.5rem 0;
+    color: #1f2937; /* dunkles Grau für Text */
+  }
+
+  .event-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #374151;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .event-title {
+    font-size: 1.25rem
+  }
+
+  .event-description{
+    font-style: italic;
+  }
+
+  .helper-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .helper-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .helper-card-content div {
+    width: 100%;
+  }
+}
+
+/* Desktop: 600px ≤ x */
+@media (min-width: 600px) {
+  /* Layout für große Bildschirme */
+  .headliner-content {
+    flex-direction: row;
+  }
+  .headliner-text {
+    width: 50%;
+  }
+  .headliner-image {
+    width: 50%;
+  }
+  .nav-link {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+  .nav-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .container {
+    padding: 1rem 3rem;
+  }
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .event-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+  }
+
+  .event-table th,
+  .event-table td {
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  .event-table th {
+    font-weight: bold;
+  }
+}
+
+/* FOOTER – Fußzeile mit Links */
+footer {
+  padding: 1.5rem 0;
+}
+.footer-container {
+  margin: 0 auto;
+  max-width: 80rem;
+  padding: 0 2rem;
+}

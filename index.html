@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Helfer:innen - Rock am See - Festival 2025</title>
+
+    <!-- Google Font: Montserrat -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Global styles -->
+    <!-- style.css enthält das Hauptlayout und das Design der Seite -->
+    <link href="src/style.css" rel="stylesheet" />
+    <!-- global.css enthält Hilfsklassen für Farben, Textgrößen und Flexbox -->
+    <link href="src/global.css" rel="stylesheet" />
+    <script src="src/main.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+      // Zielzeit: 5. Juli 2025 um 18:00 Uhr
+      startCountdown("2025-07-05T11:00:00", "countdown");
+      });
+    </script>
+  </head>
+  <body>
+    <div class="hero-background">
+      <!-- Navigation: Hauptmenü für alle Seiten -->
+      <nav class="nav">
+        <div class="nav-container">
+          <!-- Mobile menu toggle (Checkbox-Hack für responsives Menü) -->
+          <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
+          <label
+            for="nav-toggle"
+            class="nav-hamburger"
+            aria-label="Menü öffnen"
+          >
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </label>
+          <ul id="nav-menu" class="nav-menu">
+            <!-- Navigation Links zu allen Seiten -->
+            <li><a class="nav-link active" href="#info">Info</a></li>
+            <li><a class="nav-link" href="#verantaltungen">Veranstaltungen</a></li>
+            <li><a class="nav-link" href="#helfer">Helfer:innen</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <header>
+        <!-- Festival-Logo mit Beschreibung für Screenreader -->
+        <img width="200" src="./src/logo.png" alt="Rock am See Festival-Logo: Gitarrenmotiv mit See und Sonne" />
+        <h1>Rock am See - Festival 2025</h1>
+        <h2 id="countdown"></h2>
+      </header>
+
+      <!-- Main Content: Hauptinhalte der Seite -->
+      <main>
+        <div class="container">
+          <!-- Informationen -->
+          <section id="info" class="content-box animate-fade-in">
+            <h3>Welche Daten liefern die Helfer:innen?</h3>
+            <p class="text-gray">
+              Die folgende Übersicht zeigt, welche Informationen von den Helfer:innen über die API bereitgestellt werden. Diese Daten werden auf der Website angezeigt und zur Organisation des Festivals verwendet.
+            </p>
+            <ul class="text-gray">
+              <li>Name</li>
+              <li>Geschlecht</li>
+              <li>Email-Adresse</li>
+              <li>Geburtsdatum</li>
+              <li>Registrierungsdatum</li>
+              <li>Telefonnummer</li>
+              <li>Handynummer</li>
+              <li>ID</li>
+              <li>Profilbild</li>
+            </ul>
+          </section>
+
+          <!-- Ticket-Info -->
+          <section id="verantaltungen" class="content-box animate-fade-in">
+            <h3>Unsere Verantaltungen:</h3>
+            <div class="table-container">
+              <table class="event-table">
+                <thead>
+                  <tr>
+                    <th>Event</th>
+                    <th>Beschreibung</th>
+                    <th>Helfer:innen-Merkmale</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="event-title">Lichtshow am See</td>
+                    <td class="event-description">Spektakuläre Projektionen und Musikinszenierungen bei Sonnenuntergang</td>
+                    <td>
+                      <ul>
+                        <li>Registriert vor 2024</li>
+                        <li>Mindestalter 18</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="event-title">Kulinarische Weltreise</td>
+                    <td class="event-description">Internationale Food-Stände mit Spezialitäten aus aller Welt</td>
+                    <td>
+                      <ul>
+                        <li>Gutes Englisch</li>
+                        <li>Mindestalter 21</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="event-title">Yoga & Sunrise</td>
+                    <td class="event-description">Entspannende Yoga-Sessions am Seeufer in den frühen Morgenstunden</td>
+                    <td>
+                      <ul>
+                        <li>Weiblich</li>
+                        <li>Mindestalter 25</li>
+                        <li>Mobil erreichbar</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Helfer:innen -->
+          <section id="helfer" class="content-box animate-fade-in">
+            <h3>Helfer:innen:</h3>
+            <!-- Ladeanzeige -->
+            <div id="loading-helper" class="loading-spinner"></div>
+
+            <!-- Liste der Helfer:innen -->
+            <div id="helper-list" class="helper-list"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- Footer: Links zu Impressum und Helfer:innen -->
+    <footer>
+      <div class="footer-container">
+        <div>
+          <p class="text-white-600 text-center text-sm">
+            © 2025 Rock am See Festival. Alle Rechte vorbehalten.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
