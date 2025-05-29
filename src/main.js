@@ -49,16 +49,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
         card.innerHTML = `
           <div class="helper-card-content">
-            <img src="${person.picture.medium}" alt="Portrait von ${person.name.first} ${person.name.last}" class="helper-img">
-            <div>
-              <p><strong>Name:</strong> ${person.name.first} ${person.name.last}</p>
-              <p><strong>Geschlecht:</strong> ${person.gender}</p>
-              <p><strong>Email:</strong> ${person.email}</p>
-              <p><strong>Geburtsdatum:</strong> ${birth}</p>
-              <p><strong>Registriert seit:</strong> ${reg}</p>
-              <p><strong>Telefon:</strong> ${person.phone}</p>
-              <p><strong>Handy:</strong> ${person.cell}</p>
-              <p><strong>ID:</strong> ${person.id.value || "Keine ID vorhanden"}</p>
+            <div class="helper-card-left">
+              <img src="${person.picture.large}" alt="Portrait von ${person.name.first} ${person.name.last}" class="helper-img">
+              <p class="helper-name">${person.name.first} ${person.name.last}</p>
+            </div>
+            <div class="helper-card-right">
+              <p>
+                <img src="src/id.svg" alt="ID" title="ID" class="icon-inline" />
+                ${person.id.value}
+              </p>
+              <p>
+                <img src="src/gender.svg" alt="Geschlecht" title="Geschlecht" class="icon-inline" />
+                ${person.gender}
+              </p>
+              <p>
+                <img src="src/dob.svg" alt="Geburtsdatum" title="Geburtsdatum" class="icon-inline" />
+                ${birth}
+              </p>
+              <p>
+                <img src="src/email.svg" alt="Email" title="Email" class="icon-inline" />
+                ${person.email}
+              </p>
+              <p>
+                <img src="src/mobile.svg" alt="Mobil" title="Mobil" class="icon-inline" />
+                ${person.cell}
+              </p>
+              <p>
+                <img src="src/phone.svg" alt="Telefon" title="Telefon" class="icon-inline" />
+                ${person.phone}
+              </p>
+              <p>
+                <img src="src/registered_since.svg" alt="Registriert seit" title="Registriert seit" class="icon-inline" />
+                ${reg}
+              </p>
             </div>
           </div>
         `;

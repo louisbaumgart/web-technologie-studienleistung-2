@@ -382,30 +382,46 @@ main {
   }
 }
 
-.helper-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-top: 2rem;
+.helper-card {
+  box-sizing: border-box;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #4b5563;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
 }
 
-.helper-card {
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.05);
+.helper-card-content {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  flex-direction: column;
   gap: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  border-left: 4px solid #4b5563;
+}
+
+.helper-card-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .helper-img {
-  width: 80px;
-  height: 80px;
+  width: 125px;
+  height: 125px;
+  border-radius: 0.5rem;
   object-fit: cover;
-  border-radius: 50%;
+}
+
+.helper-name {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.helper-card-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
 }
 
 /* Responsive Breakpoints */
@@ -494,10 +510,34 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0;
   }
 
   .helper-card-content div {
     width: 100%;
+  }
+
+    .helper-card-right {
+    gap: 0;
+  }
+
+  .helper-card-right p {
+    line-height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .helper-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .icon-inline {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 0.5rem;
   }
 }
 
@@ -549,6 +589,37 @@ main {
 
   .event-table th {
     font-weight: bold;
+  }
+
+  .helper-card-content {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    align-items: start;
+    gap: 2rem;
+  }
+
+  .helper-card-left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .helper-card-right {
+    text-align: left;
+    gap: 0;
+  }
+
+  .helper-card-right p {
+    line-height: 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .icon-inline {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 0.5rem;
   }
 }
 
