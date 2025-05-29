@@ -129,9 +129,25 @@
           <!-- Helfer:innen -->
           <section id="helfer" class="content-box animate-fade-in">
             <h3>Helfer:innen:</h3>
+            <!-- Sortierung -->
+            <div id="sort-controls" class="sort-controls">
+              <label for="sort-by">Sortieren nach:</label>
+              <select id="sort-by">
+                <option value="name">Name</option>
+                <option value="registered">Registrierungsdatum</option>
+              </select>
+              <img
+                id="sort-icon"
+                src="src/sort_ascending.svg"
+                alt="Sortierung: Aufsteigend"
+                title="Sortierung ändern"
+                class="sort-icon"
+                role="button"
+                tabindex="0"
+              />
+            </div>
             <!-- Ladeanzeige -->
             <div id="loading-helper" class="loading-spinner"></div>
-
             <!-- Liste der Helfer:innen -->
             <div id="helper-list" class="helper-list"></div>
           </section>
